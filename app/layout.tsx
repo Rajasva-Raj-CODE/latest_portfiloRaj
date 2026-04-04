@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { seo } from "@/data";
 
 export const metadata: Metadata = {
-  title: "Rajasva Raj | Software Engineer",
-  description: "Full Stack Software Engineer specializing in React.js, React Native, and AI integrations. Passionate about building performant, accessible, and user-centric applications that solve real-world problems.",
+  title: seo.title,
+  description: seo.description,
 };
 
 export default function RootLayout({
