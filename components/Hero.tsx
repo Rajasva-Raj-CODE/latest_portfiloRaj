@@ -3,6 +3,47 @@
 import { motion } from 'motion/react';
 import { heroBio, techStack } from '@/data';
 
+const KEYWORDS = [
+  "Full Stack Developer",
+  "2+ years of experience",
+  "React.js",
+  "Next.js",
+  "JavaScript",
+  "Node.js",
+  "SQL",
+  "NoSQL",
+  "PostgreSQL",
+];
+
+function HeroBio({ text }: { text: string }) {
+  const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(`(${KEYWORDS.map(escapeRegExp).join('|')})`, 'g');
+  const parts = text.split(pattern);
+
+  let keywordIndex = 0;
+  return (
+    <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
+      {parts.map((part, i) => {
+        const isKeyword = KEYWORDS.includes(part);
+        if (isKeyword) {
+          const idx = keywordIndex;
+          keywordIndex++;
+          return (
+            <span
+              key={i}
+              className="font-medium text-slate-900 dark:text-slate-100 kw-underline"
+              style={{ animationDelay: `${idx * 0.1}s` }}
+            >
+              {part}
+            </span>
+          );
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </p>
+  );
+}
+
 export default function Hero() {
   return (
     <div className="space-y-4 pt-6 pb-4">
@@ -11,11 +52,11 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50">
-          <span className="font-dancing-script font-bold text-blue-600 dark:text-blue-400">Pixel-perfect</span> frontend <br className="hidden md:block" />
-          <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400">Scalable</span> full-stack systems <br className="hidden md:block" />
-          and Web Solutions that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400">Perform</span>
-        </h1>
+    <h1 className="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-slate-900 dark:text-slate-50">
+  Building <span className="font-dancing-script font-bold text-blue-600 dark:text-blue-400">clean</span> interfaces <br className="hidden md:block" />
+  <span className="font-dancing-script font-bold text-emerald-600 dark:text-emerald-400">Scalable</span> full-stack systems <br className="hidden md:block" />
+  and web apps that <span className="font-dancing-script font-bold text-amber-600 dark:text-amber-400">work</span>
+</h1>
       </motion.div>
 
       <motion.div
@@ -23,9 +64,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <p className="text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-          {heroBio}
-        </p>
+        <HeroBio text={heroBio} />
       </motion.div>
 
       <motion.div

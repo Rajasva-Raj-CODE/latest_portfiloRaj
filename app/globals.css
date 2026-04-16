@@ -11,3 +11,47 @@
 body {
   @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50;
 }
+
+.kw-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.kw-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #E24B4A;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: draw-line 0.4s ease-out forwards;
+}
+
+.kw-underline:hover::after {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: scaleX(1) translateY(0);
+  }
+  25% {
+    transform: scaleX(1) translateY(-2px);
+  }
+  75% {
+    transform: scaleX(1) translateY(1px);
+  }
+}

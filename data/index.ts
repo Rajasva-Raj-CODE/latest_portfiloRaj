@@ -42,15 +42,14 @@ export const personal = {
 export const navTitles = [
   "Frontend Developer",
   "Full Stack Developer",
-  "React.js Specialist",
+  "React.js Developer",
   "Next.js Developer",
 ];
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 export const heroBio =
-  "I'm a Frontend-focused Full Stack Developer with 1.5+ years of experience building responsive, production-ready web applications. Specialized in React.js, Next.js, and modern JavaScript, with backend exposure in Node.js and MongoDB. Passionate about pixel-perfect UIs and delivering clean, scalable solutions.";
-
+  "I'm a Full Stack Developer with 2+ years of experience, mainly working on frontend development using React.js, Next.js, and modern JavaScript. I build responsive, production-ready interfaces with a focus on clarity and usability. I also work with Node.js on the backend and have experience handling both SQL and NoSQL databases, including PostgreSQL. I aim to keep systems simple, maintainable, and practical for real-world use.";
 export const techStack: { name: string; icon: IconType; color: string }[] = [
   { name: "React.js",      icon: TbBrandReact,      color: "text-[#61DAFB]" },
   { name: "Next.js",       icon: TbBrandNextjs,     color: "text-slate-900 dark:text-white" },
