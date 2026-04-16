@@ -24,11 +24,11 @@ body {
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background-color: #E24B4A;
+  background-color: #51a2ff;
   border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: draw-line 0.4s ease-out forwards;
+  /* transform: scaleX(0);
+  transform-origin: left; */
+  /* animation: draw-line 0.4s ease-out forwards; */
 }
 
 .kw-underline:hover::after {
