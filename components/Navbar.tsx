@@ -147,7 +147,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-2 shrink-0">
                   <a
                     href={personal.resumePdf}
-                    download="Rajasva_Raj_Shrivastava_Resume.pdf"
+                    download="Rajasva_Raj_Shrivastav.pdf"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-semibold transition-colors shadow-sm"
                   >
                     <Download className="w-3 h-3" />
