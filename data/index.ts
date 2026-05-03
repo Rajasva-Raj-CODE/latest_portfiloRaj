@@ -149,7 +149,7 @@ export const projects: Project[] = [
     images: [
       "/projects_images/job-alert/Screenshot 2026-05-03 at 2.22.07 PM.png",
     ],
-    link:       "https://jobalert.tejasviraj.in/",
+    link:       "https://latest-job-alert.vercel.app/",
     githubLink: "https://github.com/Rajasva-Raj-CODE/Job-Alert_AI_Agent",
     tags: ["Next.js", "Supabase", "OpenAI", "Resend", "Vercel"],
     caseStudy: {
@@ -170,7 +170,7 @@ export const projects: Project[] = [
         "Building an email delivery pipeline that can generate personalized digests and send them reliably through Resend",
       ],
       techStack: ["Next.js 16", "Supabase", "OpenAI", "Resend", "Vercel Cron", "Tailwind CSS"],
-      liveDemo:   "https://jobalert.tejasviraj.in/",
+      liveDemo:   "https://latest-job-alert.vercel.app/",
       sourceCode: "https://github.com/Rajasva-Raj-CODE/Job-Alert_AI_Agent",
     },
   },
