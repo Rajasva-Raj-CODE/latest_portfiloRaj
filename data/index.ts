@@ -29,7 +29,7 @@ export const personal = {
   phone:        "8076522975",
   location:     "Noida, Uttar Pradesh, India",
   title:        "Associate Software Engineer",
-  profileImage: "https://media.licdn.com/dms/image/v2/D5603AQE2bTSAqkkwFQ/profile-displayphoto-scale_400_400/B56ZpkjIVbI8Ag-/0/1762623525809?e=1776902400&v=beta&t=j-6SHB6JRVV-_mF4kE0cpwwLxeQkWuD--1xGrKyTHKc",
+  profileImage: "/profile.jpeg",
   resumePdf:    "/Rajasva_Raj_Shrivastav.pdf",
   social: {
     linkedin: "https://www.linkedin.com/in/rajasvaraj/",
