@@ -2,7 +2,8 @@ import {
   TbBrandNodejs, TbBrandTypescript, TbBrandJavascript, TbBrandTailwind, 
   TbBrandReact, TbDatabase, TbBrandNextjs, TbApi, TbBrandFramer, 
   TbBrandMysql, TbBrandVercel, TbPlugConnected, TbBrandAws, 
-  TbBrandMongodb, TbPalette, TbCode
+  TbBrandMongodb, TbPalette, TbCode, TbShieldLock, TbGitBranch,
+  TbComponents, TbBrandSupabase, TbBrandOpenai, TbMailAi, TbClockCode
 } from 'react-icons/tb';
 
 export const getSkillColor = (skill: string): string => {
@@ -17,11 +18,19 @@ export const getSkillColor = (skill: string): string => {
   if (s.includes('express')) return 'text-slate-300';
   if (s.includes('motion') || s.includes('framer')) return 'text-purple-400';
   if (s.includes('aws')) return 'text-[#FF9900]';
-  if (s.includes('vercel')) return 'text-white';
+  if (s.includes('supabase')) return 'text-[#3ECF8E]';
+  if (s.includes('openai')) return 'text-[#10A37F]';
+  if (s.includes('resend')) return 'text-[#7C3AED]';
+  if (s.includes('cron')) return 'text-[#F59E0B]';
+  if (s.includes('vercel')) return 'text-slate-900 dark:text-white';
   if (s.includes('sql')) return 'text-[#4479A1]';
   if (s.includes('postgres')) return 'text-[#4169E1]';
   if (s.includes('redux')) return 'text-[#764ABC]';
   if (s.includes('jwt')) return 'text-pink-400';
+  if (s.includes('rbac') || s.includes('auth')) return 'text-emerald-400';
+  if (s.includes('ci/cd') || s.includes('pipeline')) return 'text-orange-400';
+  if (s.includes('component')) return 'text-cyan-400';
+  if (s.includes('api')) return 'text-blue-400';
   return 'text-slate-300';
 };
 
@@ -33,14 +42,21 @@ export const getSkillIcon = (skill: string) => {
   if (s.includes('tailwind')) return TbBrandTailwind;
   if (s.includes('react')) return TbBrandReact;
   if (s.includes('next')) return TbBrandNextjs;
-  if (s.includes('express')) return TbApi;
+  if (s.includes('express') || s.includes('api')) return TbApi;
   if (s.includes('motion')) return TbBrandFramer;
   if (s.includes('mysql')) return TbBrandMysql;
   if (s.includes('postgres') || s.includes('sql') || s.includes('redis') || s.includes('database')) return TbDatabase;
+  if (s.includes('supabase')) return TbBrandSupabase;
+  if (s.includes('openai')) return TbBrandOpenai;
+  if (s.includes('resend')) return TbMailAi;
+  if (s.includes('cron')) return TbClockCode;
   if (s.includes('vercel')) return TbBrandVercel;
   if (s.includes('websocket')) return TbPlugConnected;
   if (s.includes('aws')) return TbBrandAws;
   if (s.includes('mongo')) return TbBrandMongodb;
+  if (s.includes('rbac') || s.includes('auth')) return TbShieldLock;
+  if (s.includes('ci/cd') || s.includes('pipeline')) return TbGitBranch;
+  if (s.includes('component')) return TbComponents;
   if (s.includes('design')) return TbPalette;
   return TbCode;
 };
