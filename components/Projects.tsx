@@ -73,7 +73,7 @@ export default function Projects() {
             </span>
 
             {/* Top-right action icons */}
-            <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-3 right-3 flex gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
               {project.githubLink && (
                 <a target="_blank" href={project.githubLink} onClick={e => e.stopPropagation()}
                   className="p-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors">
@@ -87,7 +87,7 @@ export default function Projects() {
             </div>
 
             {/* Slide-up content panel */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-[calc(100%-88px)] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
+            <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-0 md:translate-y-[calc(100%-88px)] md:group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
 
               {/* Always visible: title */}
               <h3 className="text-white font-semibold text-base leading-snug mb-1 line-clamp-1">
@@ -108,8 +108,8 @@ export default function Projects() {
                 })}
               </div>
 
-              {/* Hidden until hover: description + case study */}
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 space-y-3">
+              {/* Description + case study — always visible on mobile, hover-only on desktop */}
+              <div className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 md:delay-150 space-y-3">
                 <p className="text-white/70 text-[11px] leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
@@ -148,7 +148,7 @@ export default function Projects() {
               className="fixed inset-3 md:inset-6 z-50 flex flex-col md:flex-row bg-white dark:bg-slate-950 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden"
             >
               {/* LEFT — Slideshow panel */}
-              <div className="relative md:w-[42%] h-56 md:h-auto shrink-0 bg-slate-900 overflow-hidden">
+              <div className="relative md:w-[42%] h-48 sm:h-56 md:h-auto shrink-0 bg-slate-900 overflow-hidden">
 
                 {/* Sliding images */}
                 <AnimatePresence initial={false} custom={slideDir}>
@@ -211,10 +211,10 @@ export default function Projects() {
               {/* RIGHT — Content panel */}
               <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Header */}
-                <div className="flex items-start justify-between gap-4 px-6 pt-6 pb-4 shrink-0">
+                <div className="flex items-start justify-between gap-4 px-5 pt-5 pb-3 md:px-6 md:pt-6 md:pb-4 shrink-0">
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-widest text-blue-500 mb-1">Case Study</p>
-                    <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-50">{activeProject.title}</h2>
+                    <h2 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-slate-50 leading-snug">{activeProject.title}</h2>
                   </div>
                   <button
                     onClick={() => setActiveProject(null)}
@@ -225,13 +225,13 @@ export default function Projects() {
                   </button>
                 </div>
 
-                {/* Body — no scroll, distributed with flex */}
-                <div className="flex-1 flex flex-col justify-between px-6 pb-6 gap-4 min-h-0">
+                {/* Scrollable Body */}
+                <div className="flex-1 overflow-y-auto px-5 pb-4 space-y-5 md:px-6 md:pb-6 md:space-y-6">
 
                   {/* Overview */}
                   <div>
                     <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5">Overview</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       {activeProject.caseStudy.overview}
                     </p>
                   </div>
@@ -263,32 +263,32 @@ export default function Projects() {
                       ))}
                     </ul>
                   </div>
+                </div>
 
-                  {/* Footer buttons */}
-                  <div className="flex items-center gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
-                    {activeProject.caseStudy.liveDemo && (
-                      <a
-                        href={activeProject.caseStudy.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono font-semibold bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors shadow-sm"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        Live Demo
-                      </a>
-                    )}
-                    {activeProject.caseStudy.sourceCode && (
-                      <a
-                        href={activeProject.caseStudy.sourceCode}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono font-semibold border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
-                      >
-                        <BiLogoGithub className="w-3.5 h-3.5" />
-                        Source Code
-                      </a>
-                    )}
-                  </div>
+                {/* Pinned Footer buttons */}
+                <div className="px-5 py-3 md:px-6 md:py-4 border-t border-slate-100 dark:border-slate-800 shrink-0 bg-slate-50/50 dark:bg-slate-900/20 flex items-center gap-3">
+                  {activeProject.caseStudy.liveDemo && (
+                    <a
+                      href={activeProject.caseStudy.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono font-semibold bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors shadow-sm"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      Live Demo
+                    </a>
+                  )}
+                  {activeProject.caseStudy.sourceCode && (
+                    <a
+                      href={activeProject.caseStudy.sourceCode}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono font-semibold border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+                    >
+                      <BiLogoGithub className="w-3.5 h-3.5" />
+                      Source Code
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

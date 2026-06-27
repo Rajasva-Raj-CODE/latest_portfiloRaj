@@ -10,13 +10,17 @@ import { personal, navTitles } from '@/data';
 export default function Navbar() {
   const [titleIndex, setTitleIndex] = useState(0);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [isDark, setIsDark] = useState(true);
+
+  // Initialize theme from client settings after mount to avoid hydration mismatch
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored) {
+      setIsDark(stored === 'dark');
+    } else {
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
-    return true;
-  });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

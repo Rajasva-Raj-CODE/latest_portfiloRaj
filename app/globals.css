@@ -55,3 +55,20 @@ body {
     transform: scaleX(1) translateY(1px);
   }
 }
+
+@keyframes slide-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-marquee {
+  animation: slide-marquee 20s linear infinite;
+}
+
+.group:hover .animate-slide-marquee {
+  animation-play-state: paused !important;
+}

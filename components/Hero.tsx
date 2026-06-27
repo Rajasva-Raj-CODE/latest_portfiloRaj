@@ -87,18 +87,6 @@ export default function Hero() {
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent dark:from-slate-950 z-10 pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent dark:from-slate-950 z-10 pointer-events-none"></div>
 
-        <style>{`
-          @keyframes slide-marquee {
-            from { transform: translateX(0%); }
-            to { transform: translateX(-50%); }
-          }
-          .animate-slide-marquee {
-            animation: slide-marquee 20s linear infinite;
-          }
-          .group:hover .animate-slide-marquee {
-            animation-play-state: paused !important;
-          }
-        `}</style>
         <div className="flex overflow-hidden group">
           <div className="flex gap-3 items-center py-2 whitespace-nowrap animate-slide-marquee">
             {[...techStack, ...techStack].map((tech, i) => (
